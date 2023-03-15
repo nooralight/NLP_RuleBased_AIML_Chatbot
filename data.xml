@@ -1,0 +1,44 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<category>
+  <pattern>WHAT IS YOUR FAVORITE POKEMON</pattern>
+  <template>
+    My favorite Pokemon is Charizard!
+  </template>
+</category>
+
+<category><pattern>CAN YOU TELL ME A BIT MORE ABOUT CHARIZARD</pattern>
+<template>Charizard is a Fire/Flying-type Pokemon that has the ability to fly and breathe fire. It's one of the most iconic and powerful Pokemon out there, and many trainers dream of catching one.</template>
+</category>
+
+<category><pattern>DO YOU HAVE ANY TIPS FOR CATCHING A CHARIZARD</pattern>
+<template>To catch a Charizard, it's best to weaken it with other Pokemon first, and then use a strong Pokeball. You can also try using a lure or other item to attract it to you.</template>
+</category>
+
+<category><pattern>THANKS FOR THE ADVICE *</pattern>
+<template>No problem! I'm always happy to help out a fellow Pokemon trainer.</template>
+</category>
+
+<category><pattern>I LOVE *</pattern>
+<template><star index="1"/> is pretty awesome. Have you caught one in Pokemon Go?</template>
+</category>
+
+<category><pattern>* IS PRETTY AWESOME</pattern>
+<template>Yes, I have caught <star index="1"/>.</template>
+</category>
+
+<category>
+    <pattern>DO YOU HAVE ANY TIPS FOR CATCHING RARE POKEMON</pattern>
+    <template>I find that going to parks and other public areas with lots of Pokestops is a good way to increase your chances.</template>
+</category>
+
+<category><pattern>GOOD MORNING PICKACHU</pattern>
+<template>Pika pika! Good morning to you too!</template>
+</category>
+
+<category>
+  <pattern>HELLO ASH HOW ARE YOU DOING ON YOUR JOURNEY</pattern>
+  <template>I am doing great, Professor. Pikachu and I are having a lot of fun</template>
+</category>
+
+</aiml>

@@ -1,9 +1,10 @@
 import aiml
 import nlp_class
+import os
 
 # Create a Kernel object. No string encoding (all I/O is unicode)
 kern = aiml.Kernel()
-kern.setTextEncoding(None)
+#kern.setTextEncoding(None)
 #kern.setTextEncoding(None)
 
 # Use the Kernel's bootstrap() method to initialize the Kernel. The
@@ -11,7 +12,9 @@ kern.setTextEncoding(None)
 # The optional commands argument is a command (or list of commands)
 # to run after the files are loaded.
 # The optional brainFile argument specifies a brain file to load.
-kern.learn("/data.aiml")
+if os.path.isfile("data.xml"):
+    kern.bootstrap(learnFiles = "data.xml")
+    kern.saveBrain("bot_brain.brn")
 
 # Define a rule-based algorithm to handle a specific user input
 def handle_user_input(user_input):
@@ -30,8 +33,10 @@ def handle_user_input(user_input):
 #     return None
 
 # Welcome the user
-print("Welcome to this chat bot. Please feel free to ask questions from me!")
 
+
+print("Welcome to this chat bot. Please feel free to ask questions from me!")
+#kern.respond("load aiml b")
 # Main loop
 while True:
     # Get user input
@@ -40,8 +45,18 @@ while True:
     except (KeyboardInterrupt, EOFError) as e:
         print("Bye!")
         break
-    ans = handle_user_input(user_input)
-    print(ans)
-    if "I am sorry!" in ans:
-        answer = kern.respond(user_input)
-        print(answer)
+    print("User input: "+user_input)
+    answer = kern.respond(user_input)
+    if answer:
+        print("AIML Bot: "+answer)
+    else:
+        print("AIML bot: No knowledge")
+        ans = handle_user_input(user_input)
+        print("NLP bot: "+ans)
+        # ans = handle_user_input(user_input)
+        # print("NLP Bot :"+ans)
+        
+        
+    # if "I am sorry!" in ans:
+    #     answer = kern.respond(user_input)
+    #     print(answer)
